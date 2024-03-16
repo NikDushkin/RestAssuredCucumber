@@ -7,7 +7,6 @@ import lombok.*;
 @Getter
 @Setter
 @Builder
-public class SingleUserResponseDto {
-    private DataDto data;
-    private SupportDto support;
+public class SuccessfulLoginBodyResponse {
+    private String token;
 }

@@ -1,6 +1,6 @@
 package JustRequests;
 
-import Reqresin.dto.requestDto.RegisterUserDto;
+import Reqresin.dto.requestDto.EmailPasswordDto;
 import io.restassured.http.ContentType;
 import io.restassured.response.Response;
 import org.junit.Test;
@@ -13,7 +13,7 @@ public class RestAssuredRequests {
     public static String URL = "https://reqres.in/";
     @Test
     public void CreateUser(){
-        RegisterUserDto user = new RegisterUserDto("eve.holt@reqres.in","pistol");
+        EmailPasswordDto user = new EmailPasswordDto("eve.holt@reqres.in","pistol");
         Response response = given()
                 .contentType(ContentType.JSON)
                 .body(user)
