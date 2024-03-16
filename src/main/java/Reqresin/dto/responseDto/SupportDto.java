@@ -7,7 +7,7 @@ import lombok.*;
 @Getter
 @Setter
 @Builder
-public class SingleUserResponseDto {
-    private DataDto data;
-    private SupportDto support;
+public class SupportDto {
+    private String url;
+    private String text;
 }

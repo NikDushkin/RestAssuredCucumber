@@ -13,9 +13,6 @@ import static Reqresin.RestAssuredHelper.RESPONSE;
 public class ReqresinServiceImpl {
     RestAssuredHelper restAssuredHelper = new RestAssuredHelper();
 
-    public static String CORRECT_BODY_REGISTER_RESPONSE = "{\"id\":4,\"token\":\"QpwL5tke4Pnpja7X4\"}";
-    public static String MISSING_PASSWORD_ERROR = "{\"error\":\"Missing password\"}";
-    public static String CORRECT_BODY_LOGIN_RESPONSE = "{\"token\":\"QpwL5tke4Pnpja7X4\"}";
     public void registerUserValidData(){
         restAssuredHelper.RequestPostPathAndBody(ReqresinPath.registerUser, JsonOutput.toJson(registerUserData.getValidDataForRegisterUser()));
     }

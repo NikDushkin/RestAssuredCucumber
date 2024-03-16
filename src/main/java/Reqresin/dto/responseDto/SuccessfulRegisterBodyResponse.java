@@ -7,7 +7,7 @@ import lombok.*;
 @Getter
 @Setter
 @Builder
-public class supportDto {
-    private String url;
-    private String text;
+public class SuccessfulRegisterBodyResponse {
+    private Integer id;
+    private String token;
 }

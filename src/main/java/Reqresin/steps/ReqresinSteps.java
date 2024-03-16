@@ -3,6 +3,9 @@ package Reqresin.steps;
 import Reqresin.service.ReqresinServiceImpl;
 import io.cucumber.java.bg.И;
 
+import static Reqresin.template.loginUserData.getSuccessfulLoginBodyResponse;
+import static Reqresin.template.loginUserData.getUnsuccessfulRegisterOrLoginBodyResponse;
+import static Reqresin.template.registerUserData.getSuccessfulRegisterBodyResponse;
 import static Reqresin.template.singleUserData.getSingleUserData;
 import static groovy.json.JsonOutput.toJson;
 import static org.junit.Assert.assertEquals;
@@ -20,7 +23,7 @@ public class ReqresinSteps {
     }
     @И("Проверить тело ответa после регистрации")
     public void checkResponseBodyAfterRegister() {
-        assertEquals(reqresinService.CORRECT_BODY_REGISTER_RESPONSE, reqresinService.getResponseBody());
+        assertEquals(toJson(getSuccessfulRegisterBodyResponse()), reqresinService.getResponseBody());
     }
     @И("Выполнить POST запрос api.register без пароля")
     public void createUserInvalidData() {
@@ -28,7 +31,8 @@ public class ReqresinSteps {
     }
     @И("Проверить ошибку в ответе")
     public void checkBodyErrorAfterRegister() {
-        assertEquals(reqresinService.MISSING_PASSWORD_ERROR, reqresinService.getResponseBody());
+        assertEquals(toJson(getUnsuccessfulRegisterOrLoginBodyResponse()),
+                reqresinService.getResponseBody());
     }
     @И("Выполнить POST запрос api.login с валидными данными")
     public void loginUserValidData() {
@@ -36,7 +40,8 @@ public class ReqresinSteps {
     }
     @И("Проверить тело ответа после входа с валидными данными")
     public void checkResponseBodyAfterLogin() {
-        assertEquals(reqresinService.CORRECT_BODY_LOGIN_RESPONSE, reqresinService.getResponseBody());
+        assertEquals(toJson(getSuccessfulLoginBodyResponse()),
+                reqresinService.getResponseBody());
     }
 
     @И("Выполнить POST запрос api.login без пароля")

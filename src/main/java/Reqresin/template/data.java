@@ -1,10 +1,10 @@
 package Reqresin.template;
 
-import Reqresin.dto.responseDto.dataDto;
+import Reqresin.dto.responseDto.DataDto;
 
 public class data {
-    public static dataDto getDataAboutUser(){
-        return new dataDto().builder()
+    public static DataDto getDataAboutUser(){
+        return new DataDto().builder()
                 .id(2)
                 .email("janet.weaver@reqres.in")
                 .first_name("Janet")
