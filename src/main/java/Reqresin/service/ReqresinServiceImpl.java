@@ -15,16 +15,16 @@ public class ReqresinServiceImpl {
     public static String MISSING_PASSWORD_ERROR = "{\"error\":\"Missing password\"}";
     public static String CORRECT_BODY_LOGIN_RESPONSE = "{\"token\":\"QpwL5tke4Pnpja7X4\"}";
     public void registerUserValidData(){
-        restAssuredHelper.RequestPostPathBody(ReqresinPath.registerUser, JsonOutput.toJson(registerUserData.getValidDataForRegisterUser()));
+        restAssuredHelper.RequestPostPathAndBody(ReqresinPath.registerUser, JsonOutput.toJson(registerUserData.getValidDataForRegisterUser()));
     }
     public void registerUserInvalidData(){
-        restAssuredHelper.RequestPostPathBody(ReqresinPath.registerUser, JsonOutput.toJson(registerUserData.getInvalidDataForRegisterUser()));
+        restAssuredHelper.RequestPostPathAndBody(ReqresinPath.registerUser, JsonOutput.toJson(registerUserData.getInvalidDataForRegisterUser()));
     }
     public void loginUserValidData(){
-        restAssuredHelper.RequestPostPathBody(ReqresinPath.loginUser, JsonOutput.toJson(loginUserData.getValidDataForLoginUser()));
+        restAssuredHelper.RequestPostPathAndBody(ReqresinPath.loginUser, JsonOutput.toJson(loginUserData.getValidDataForLoginUser()));
     }
     public void loginUserInvalidData(){
-        restAssuredHelper.RequestPostPathBody(ReqresinPath.loginUser, JsonOutput.toJson(loginUserData.getInvalidDataForLoginUser()));
+        restAssuredHelper.RequestPostPathAndBody(ReqresinPath.loginUser, JsonOutput.toJson(loginUserData.getInvalidDataForLoginUser()));
     }
     public String getStatusCode(){
         return String.valueOf(RESPONSE.getStatusCode());

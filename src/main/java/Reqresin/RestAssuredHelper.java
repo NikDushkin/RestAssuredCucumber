@@ -13,7 +13,7 @@ import org.json.JSONObject;
 public class RestAssuredHelper {
     public static Response RESPONSE;
     public static String BASE_URL = "https://reqres.in";
-    public void RequestPostPathBody(String path, String body){
+    public void RequestPostPathAndBody(String path, String body){
         RESPONSE = RestAssured.given()
                 .contentType(ContentType.JSON)
                 .body(body)
