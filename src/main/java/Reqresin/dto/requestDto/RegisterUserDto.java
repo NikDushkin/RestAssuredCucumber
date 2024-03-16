@@ -1,4 +1,4 @@
-package Reqresin.dto;
+package Reqresin.dto.requestDto;
 
 import lombok.*;
 
@@ -7,7 +7,7 @@ import lombok.*;
 @Getter
 @Setter
 @Builder
-public class LoginUserDto {
+public class RegisterUserDto {
     private String email;
     private String password;
 }

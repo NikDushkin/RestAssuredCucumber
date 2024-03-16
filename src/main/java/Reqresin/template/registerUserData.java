@@ -1,7 +1,6 @@
 package Reqresin.template;
 
-import Reqresin.dto.LoginUserDto;
-import Reqresin.dto.RegisterUserDto;
+import Reqresin.dto.requestDto.RegisterUserDto;
 public class registerUserData {
     public static RegisterUserDto getValidDataForRegisterUser(){
         return new RegisterUserDto().builder()
