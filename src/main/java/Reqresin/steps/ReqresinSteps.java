@@ -3,6 +3,7 @@ package Reqresin.steps;
 import Reqresin.service.ReqresinServiceImpl;
 import io.cucumber.java.bg.И;
 
+import static Reqresin.template.singleUserData.getSingleUserData;
 import static groovy.json.JsonOutput.toJson;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
@@ -21,7 +22,6 @@ public class ReqresinSteps {
     public void checkResponseBodyAfterRegister() {
         assertEquals(reqresinService.CORRECT_BODY_REGISTER_RESPONSE, reqresinService.getResponseBody());
     }
-
     @И("Выполнить POST запрос api.register без пароля")
     public void createUserInvalidData() {
         reqresinService.registerUserInvalidData();
@@ -42,5 +42,13 @@ public class ReqresinSteps {
     @И("Выполнить POST запрос api.login без пароля")
     public void loginUserInvalidData() {
         reqresinService.loginUserInvalidData();
+    }
+    @И("Выполнить GET запрос api.user с Id {int}")
+    public void loginUserInvalidData(Integer userId) {
+        reqresinService.getSingleUser(String.valueOf(userId));
+    }
+    @И("Проверить тело ответа о пользователе")
+    public void checkSingleUserData() {
+        assertEquals(toJson(getSingleUserData()),reqresinService.getResponseBody());
     }
 }

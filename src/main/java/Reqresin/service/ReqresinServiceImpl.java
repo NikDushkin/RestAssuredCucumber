@@ -6,6 +6,8 @@ import Reqresin.template.loginUserData;
 import Reqresin.template.registerUserData;
 import groovy.json.JsonOutput;
 
+import java.util.Map;
+
 import static Reqresin.RestAssuredHelper.RESPONSE;
 
 public class ReqresinServiceImpl {
@@ -25,6 +27,10 @@ public class ReqresinServiceImpl {
     }
     public void loginUserInvalidData(){
         restAssuredHelper.RequestPostPathAndBody(ReqresinPath.loginUser, JsonOutput.toJson(loginUserData.getInvalidDataForLoginUser()));
+    }
+    public void getSingleUser(String userId){
+        restAssuredHelper.RequestGetPathAndPathParams(ReqresinPath.singleUser,
+                Map.of("userId", userId));
     }
     public String getStatusCode(){
         return String.valueOf(RESPONSE.getStatusCode());

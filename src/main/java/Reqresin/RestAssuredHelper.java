@@ -9,6 +9,8 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 import org.json.JSONObject;
 
+import java.util.Map;
+
 
 public class RestAssuredHelper {
     public static Response RESPONSE;
@@ -19,6 +21,17 @@ public class RestAssuredHelper {
                 .body(body)
                 .when()
                 .post(BASE_URL + path)
+                .then().log().all()
+                .extract().response();
+    }
+    public void RequestGetPathAndPathParams(String path, Map<String, String> map){
+        for (String key : map.keySet()) {
+            path = path.replace(key,map.get(key));
+        }
+        RESPONSE = RestAssured.given()
+                .contentType(ContentType.JSON)
+                .when()
+                .get(BASE_URL + path)
                 .then().log().all()
                 .extract().response();
     }

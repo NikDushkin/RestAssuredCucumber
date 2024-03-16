@@ -1,6 +1,6 @@
 package Reqresin.template;
 
-import Reqresin.dto.LoginUserDto;
+import Reqresin.dto.requestDto.LoginUserDto;
 
 public class loginUserData {
     public static LoginUserDto getValidDataForLoginUser(){
